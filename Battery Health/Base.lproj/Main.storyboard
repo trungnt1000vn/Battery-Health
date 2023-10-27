@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Battery_Health" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1800"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ZW-LN-aDa">
+                                <rect key="frame" x="0.0" y="48" width="414" height="1752"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t0k-2S-8q7">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1700"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PbS-vo-lqD">
+                                                <rect key="frame" x="16" y="103" width="390" height="272"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.10588235294117647" green="0.12156862745098039" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Charging State-Unplugged" translatesAutoresizingMaskIntoConstraints="NO" id="P8S-Ee-Tj8">
+                                                <rect key="frame" x="237" y="260" width="157" height="84"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.12941176470588234" green="0.15294117647058825" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7pT-2y-h1M">
+                                                <rect key="frame" x="16" y="428" width="390" height="254"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.10588235294117647" green="0.11764705882352941" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="80picked" translatesAutoresizingMaskIntoConstraints="NO" id="Pa2-jU-655">
+                                                <rect key="frame" x="16" y="488" width="130" height="200"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.10588235294117647" green="0.11764705882352941" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pickedeffect" translatesAutoresizingMaskIntoConstraints="NO" id="ons-nI-EfT">
+                                                <rect key="frame" x="16" y="488" width="130" height="202"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="90" id="RXC-om-KtO">
+                                                <rect key="frame" x="146" y="488" width="130" height="200"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.10588235294117647" green="0.11764705882352941" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="100" id="mLJ-gL-28r">
+                                                <rect key="frame" x="276" y="488" width="130" height="200"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.10588235294117647" green="0.11764705882352941" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
+                                            </imageView>
+                                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pickedeffect" id="EJf-FY-YZ5">
+                                                <rect key="frame" x="146" y="488" width="130" height="202"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Set Battery Percentage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4u-aY-qCL">
+                                                <rect key="frame" x="86" y="443" width="265" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pickedeffect" id="F2q-Pf-nkC">
+                                                <rect key="frame" x="276" y="487" width="130" height="202"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="batterylightning" translatesAutoresizingMaskIntoConstraints="NO" id="qcy-ta-qF5">
+                                                <rect key="frame" x="46" y="441" width="32" height="24"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="batterysmallicon" translatesAutoresizingMaskIntoConstraints="NO" id="hBE-n2-Lv4">
+                                                <rect key="frame" x="227" y="131" width="24" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Battery Percentage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6op-Hv-127">
+                                                <rect key="frame" x="253" y="131" width="147" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="batterystatusBG" translatesAutoresizingMaskIntoConstraints="NO" id="5j3-wn-CpC">
+                                                <rect key="frame" x="327" y="195" width="87" height="16"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="High" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9LI-mq-4lt">
+                                                <rect key="frame" x="343" y="196" width="63" height="15"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="80%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C2F-iT-Kf3">
+                                                <rect key="frame" x="237" y="184" width="98" height="39"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                                <color key="textColor" red="0.70196078431372544" green="0.94901960784313721" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mmn-7X-lBX">
+                                                <rect key="frame" x="16" y="698" width="390" height="666"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.10588235294117647" green="0.12156862745098039" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bell" translatesAutoresizingMaskIntoConstraints="NO" id="akJ-mC-Dge">
+                                                <rect key="frame" x="49" y="715" width="26" height="27"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alarm Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dd-mF-Z9W">
+                                                <rect key="frame" x="83" y="715" width="101" height="18"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bellButtonPicked" translatesAutoresizingMaskIntoConstraints="NO" id="jfm-ea-YZb">
+                                                <rect key="frame" x="60" y="742" width="307" height="52"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="melodyButton" translatesAutoresizingMaskIntoConstraints="NO" id="rGt-lF-ZaQ">
+                                                <rect key="frame" x="58" y="802" width="307" height="52"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sirenButton" translatesAutoresizingMaskIntoConstraints="NO" id="abz-Du-M9k">
+                                                <rect key="frame" x="58" y="862" width="307" height="52"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="divider" translatesAutoresizingMaskIntoConstraints="NO" id="B9S-lS-bQn">
+                                                <rect key="frame" x="84" y="933" width="259" height="1"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alarm Volume" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cg3-sr-bpe">
+                                                <rect key="frame" x="86" y="978" width="95" height="18"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="speaker" translatesAutoresizingMaskIntoConstraints="NO" id="bXb-rO-W5z">
+                                                <rect key="frame" x="49" y="974" width="29" height="26"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1700" id="kNj-Hy-OPn"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="t0k-2S-8q7" firstAttribute="width" secondItem="8ZW-LN-aDa" secondAttribute="width" id="6Vc-gt-RlW"/>
+                                    <constraint firstItem="t0k-2S-8q7" firstAttribute="top" secondItem="8ZW-LN-aDa" secondAttribute="top" id="FBk-gA-Num"/>
+                                    <constraint firstAttribute="bottom" secondItem="t0k-2S-8q7" secondAttribute="bottom" id="LKl-yo-d3s"/>
+                                    <constraint firstItem="t0k-2S-8q7" firstAttribute="leading" secondItem="8ZW-LN-aDa" secondAttribute="leading" id="YHz-eW-4cv"/>
+                                    <constraint firstAttribute="trailing" secondItem="t0k-2S-8q7" secondAttribute="trailing" id="efK-6l-9q0"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="aNW-nF-HzQ"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="fQC-WH-JZk"/>
+                            </scrollView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="settingbutton" translatesAutoresizingMaskIntoConstraints="NO" id="qYJ-iz-K7V">
+                                <rect key="frame" x="350" y="71" width="65" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Battery Health" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kbg-Xx-NWh">
+                                <rect key="frame" x="20" y="76" width="173" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8ZW-LN-aDa" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="AQ7-KR-BVc"/>
+                            <constraint firstAttribute="bottom" secondItem="8ZW-LN-aDa" secondAttribute="bottom" id="VY1-sO-bIQ"/>
+                            <constraint firstItem="8ZW-LN-aDa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bgW-hZ-CKn"/>
+                            <constraint firstItem="8ZW-LN-aDa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="rBi-ul-leP"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="414" height="1800"/>
+                    <connections>
+                        <outlet property="alarmSetUpBG" destination="mmn-7X-lBX" id="ocZ-5g-XQo"/>
+                        <outlet property="batteryLevelLabel" destination="C2F-iT-Kf3" id="VcD-uX-HZx"/>
+                        <outlet property="batteryStatusLabel" destination="9LI-mq-4lt" id="UEb-hj-IoR"/>
+                        <outlet property="bellButton" destination="jfm-ea-YZb" id="P7m-Ca-qac"/>
+                        <outlet property="chargestateBG" destination="P8S-Ee-Tj8" id="WLl-CR-RCZ"/>
+                        <outlet property="contentView" destination="t0k-2S-8q7" id="kcv-10-hKp"/>
+                        <outlet property="imageBG" destination="PbS-vo-lqD" id="RJD-E1-uzE"/>
+                        <outlet property="imageView100" destination="mLJ-gL-28r" id="5BS-Ip-NdB"/>
+                        <outlet property="imageView80" destination="Pa2-jU-655" id="4fw-YR-qif"/>
+                        <outlet property="imageview90" destination="RXC-om-KtO" id="VEe-ZG-L7G"/>
+                        <outlet property="melodyButton" destination="rGt-lF-ZaQ" id="tjm-eV-qQw"/>
+                        <outlet property="picked100" destination="F2q-Pf-nkC" id="daU-z9-RfT"/>
+                        <outlet property="picked80" destination="ons-nI-EfT" id="Ubj-cX-Mvk"/>
+                        <outlet property="picked90" destination="EJf-FY-YZ5" id="1N5-ko-pgI"/>
+                        <outlet property="pickingBG" destination="7pT-2y-h1M" id="xu5-zE-Pn1"/>
+                        <outlet property="scrollView" destination="8ZW-LN-aDa" id="p76-9N-YDQ"/>
+                        <outlet property="settingButton" destination="qYJ-iz-K7V" id="VnA-dr-2bH"/>
+                        <outlet property="sirenButton" destination="abz-Du-M9k" id="ssL-tA-fDL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="101.44927536231884" y="-27.455357142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="100" width="115.66666412353516" height="202"/>
+        <image name="80picked" width="115.66666412353516" height="202"/>
+        <image name="90" width="115.66666412353516" height="202"/>
+        <image name="Charging State-Unplugged" width="157" height="84"/>
+        <image name="batterylightning" width="20" height="20"/>
+        <image name="batterysmallicon" width="20" height="20"/>
+        <image name="batterystatusBG" width="80" height="20"/>
+        <image name="bell" width="20" height="20"/>
+        <image name="bellButtonPicked" width="307" height="52"/>
+        <image name="divider" width="388.66665649414062" height="1"/>
+        <image name="melodyButton" width="307" height="52"/>
+        <image name="pickedeffect" width="115.66666412353516" height="202"/>
+        <image name="settingbutton" width="24" height="24"/>
+        <image name="sirenButton" width="307" height="52"/>
+        <image name="speaker" width="20" height="20"/>
+    </resources>
+</document>
