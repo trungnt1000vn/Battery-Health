@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -41,6 +42,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var alarmSetUpBG: UIImageView!
     
     
+    @IBOutlet weak var setalarmButton: UIImageView!
     
     @IBOutlet weak var bellButton: UIImageView!
     
@@ -51,9 +53,38 @@ class ViewController: UIViewController {
     @IBOutlet weak var sirenButton: UIImageView!
     
     
+    @IBOutlet weak var notiBG: UIImageView!
+    
+    
+    @IBOutlet weak var vibrateBG: UIImageView!
+    
+    
+    @IBOutlet weak var switchNoti: UISwitch!
+    
+    
+    @IBOutlet weak var vibrateSwitch: UISwitch!
+    
+    
+    @IBOutlet weak var analyticBG: UIImageView!
+    
+    
+    @IBOutlet weak var volumeSlider: UISlider!
+    
+    
+    var audioPlayer: AVAudioPlayer?
+    var audioPlayerVolume: Float = 0.0
+    
     
     
     public var alarmPercentage: Int = 80
+    
+    let batteryProgressView = BatteryProgressView()
+    
+    let dr: TimeInterval = 10.0
+    
+    var timer: Timer?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -61,11 +92,13 @@ class ViewController: UIViewController {
         
         setUpGestureforimgs()
         
+        scrollView.addSubview(batteryProgressView)
+        batteryProgressView.setupProgress(batteryProgressView.progress)
         
         updateBatteryPercentage()
         updateBatteryState()
-        
-        
+        audioPlayerVolume = 0.5
+        volumeSlider.addTarget(self, action: #selector(volumeSliderValueChanged(_:)), for: .valueChanged)
         NotificationCenter.default.addObserver(self, selector: #selector(batteryLevelDidChange), name: UIDevice.batteryLevelDidChangeNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(batteryStateDidChange), name: UIDevice.batteryStateDidChangeNotification, object: nil)
     }
@@ -78,7 +111,20 @@ class ViewController: UIViewController {
         super.viewWillDisappear(animated)
         UIDevice.current.isBatteryMonitoringEnabled = false
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { _ in
+            let dr = CGFloat(1.0 / (self.dr/0.01))
+            
+            self.batteryProgressView.progress += dr
+            self.batteryProgressView.setupProgress(self.batteryProgressView.progress)
+            
+            if self.batteryProgressView.progress >= 0.95 {
+                self.timer?.invalidate()
+                self.timer = nil
+            }
+        })
+    }
     @objc func batteryLevelDidChange() {
         updateBatteryPercentage()
     }
@@ -92,8 +138,10 @@ class ViewController: UIViewController {
             print("Trạng thái sạc không xác định")
         case .unplugged:
             chargestateBG.image = UIImage(named: "Charging State-Unplugged")
+            setalarmButton.isHidden = true
         case .charging:
             chargestateBG.image = UIImage(named: "Battery State - Charging")
+            setalarmButton.isHidden = false
         case .full:
             print("Sạc đầy")
         @unknown default:
@@ -122,7 +170,19 @@ class ViewController: UIViewController {
             batteryLevelLabel.text = "N/A"
         }
     }
-    
+    @objc func volumeSliderValueChanged(_ sender: UISlider) {
+        audioPlayerVolume = sender.value
+    }
+    func playBellSound(ringtone: String) {
+        guard let url = Bundle.main.url(forResource: ringtone, withExtension: "mp3") else { return }
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.volume = audioPlayerVolume
+            audioPlayer?.play()
+        } catch {
+            print("Error playing sound: \(error)")
+        }
+    }
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var contentView: UIView!
@@ -135,6 +195,12 @@ class ViewController: UIViewController {
         alarmSetUpBG.layer.cornerRadius = 32
         chargestateBG.layer.borderWidth = 0.1
         chargestateBG.layer.cornerRadius = 10
+        notiBG.clipsToBounds = true
+        notiBG.layer.cornerRadius = 32
+        vibrateBG.clipsToBounds = true
+        vibrateBG.layer.cornerRadius = 32
+        analyticBG.clipsToBounds = true
+        analyticBG.layer.cornerRadius = 32
         pickingBG.clipsToBounds = true
         pickingBG.layer.cornerRadius = 32
         picked80.layer.cornerRadius = 32
@@ -151,7 +217,13 @@ class ViewController: UIViewController {
         imageView100.layer.maskedCorners = [.layerMaxXMaxYCorner]
         imageView100.layer.borderColor = CGColor(red: 27, green: 30, blue: 31, alpha: 1)
         imageView100.clipsToBounds = true
+        batteryProgressView.translatesAutoresizingMaskIntoConstraints = false
+        batteryProgressView.backgroundColor = UIColor.clear
+        batteryProgressView.progress = 0.0
         
+       
+        
+        batteryProgressView.frame.origin = CGPoint(x: 43, y: 197)
     }
     func setUpGestureforimgs(){
         let tapGesture80 = UITapGestureRecognizer(target: self, action: #selector(didTap80))
@@ -209,16 +281,20 @@ extension ViewController{
         bellButton.image = UIImage(named: "bellButtonPicked")
         melodyButton.image = UIImage(named: "melodyButton")
         sirenButton.image = UIImage(named: "sirenButton")
+        playBellSound(ringtone: "Bell")
     }
     @objc func didTapMelody(){
         bellButton.image = UIImage(named: "bellButton")
         melodyButton.image = UIImage(named: "melodyButtonPicked")
         sirenButton.image = UIImage(named: "sirenButton")
+        playBellSound(ringtone: "Melody")
     }
     @objc func didTapSiren(){
         bellButton.image = UIImage(named: "bellButton")
         melodyButton.image = UIImage(named: "melodyButton")
         sirenButton.image = UIImage(named: "sirenButtonPicked")
+        playBellSound(ringtone: "Siren")
     }
 }
+
 
