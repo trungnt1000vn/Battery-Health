@@ -7,15 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		874791E42AF4D18C0042517D /* BatteryProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874791E32AF4D18C0042517D /* BatteryProgressView.swift */; };
+		874C0EDF2B19C0B9000624E3 /* RoundedSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874C0EDE2B19C0B9000624E3 /* RoundedSlider.swift */; };
+		87BEF3912B0F59C90065D4DF /* GradientSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BEF3902B0F59C90065D4DF /* GradientSlider.swift */; };
 		87D6ED042ADFD93300CD39C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D6ED032ADFD93300CD39C3 /* AppDelegate.swift */; };
 		87D6ED062ADFD93300CD39C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D6ED052ADFD93300CD39C3 /* SceneDelegate.swift */; };
 		87D6ED082ADFD93300CD39C3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D6ED072ADFD93300CD39C3 /* ViewController.swift */; };
 		87D6ED0B2ADFD93300CD39C3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D6ED092ADFD93300CD39C3 /* Main.storyboard */; };
 		87D6ED0D2ADFD93500CD39C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87D6ED0C2ADFD93500CD39C3 /* Assets.xcassets */; };
 		87D6ED102ADFD93500CD39C3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87D6ED0E2ADFD93500CD39C3 /* LaunchScreen.storyboard */; };
+		87DBB4042B032EA3002F503D /* Melody.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 87DBB4032B032EA3002F503D /* Melody.mp3 */; };
+		87E52D3C2B04A13200A6BFE3 /* Siren.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 87E52D3B2B04A13200A6BFE3 /* Siren.mp3 */; };
+		87E6C7CB2B183673001ECDDD /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E6C7CA2B183673001ECDDD /* CustomSlider.swift */; };
+		87F108EC2B020F0A003EEA91 /* Bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 87F108EB2B020F09003EEA91 /* Bell.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		874791E32AF4D18C0042517D /* BatteryProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryProgressView.swift; sourceTree = "<group>"; };
+		874C0EDE2B19C0B9000624E3 /* RoundedSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedSlider.swift; sourceTree = "<group>"; };
+		87BEF3902B0F59C90065D4DF /* GradientSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientSlider.swift; sourceTree = "<group>"; };
 		87D6ED002ADFD93300CD39C3 /* Battery Health.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Battery Health.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87D6ED032ADFD93300CD39C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87D6ED052ADFD93300CD39C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +34,10 @@
 		87D6ED0C2ADFD93500CD39C3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87D6ED0F2ADFD93500CD39C3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87D6ED112ADFD93500CD39C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87DBB4032B032EA3002F503D /* Melody.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Melody.mp3; sourceTree = "<group>"; };
+		87E52D3B2B04A13200A6BFE3 /* Siren.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Siren.mp3; sourceTree = "<group>"; };
+		87E6C7CA2B183673001ECDDD /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
+		87F108EB2B020F09003EEA91 /* Bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Bell.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +54,10 @@
 		87D6ECF72ADFD93300CD39C3 = {
 			isa = PBXGroup;
 			children = (
+				87BEF3902B0F59C90065D4DF /* GradientSlider.swift */,
+				87DBB4032B032EA3002F503D /* Melody.mp3 */,
+				87F108EB2B020F09003EEA91 /* Bell.mp3 */,
+				87E52D3B2B04A13200A6BFE3 /* Siren.mp3 */,
 				87D6ED022ADFD93300CD39C3 /* Battery Health */,
 				87D6ED012ADFD93300CD39C3 /* Products */,
 			);
@@ -63,6 +81,9 @@
 				87D6ED0C2ADFD93500CD39C3 /* Assets.xcassets */,
 				87D6ED0E2ADFD93500CD39C3 /* LaunchScreen.storyboard */,
 				87D6ED112ADFD93500CD39C3 /* Info.plist */,
+				874791E32AF4D18C0042517D /* BatteryProgressView.swift */,
+				87E6C7CA2B183673001ECDDD /* CustomSlider.swift */,
+				874C0EDE2B19C0B9000624E3 /* RoundedSlider.swift */,
 			);
 			path = "Battery Health";
 			sourceTree = "<group>";
@@ -126,8 +147,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				87D6ED102ADFD93500CD39C3 /* LaunchScreen.storyboard in Resources */,
+				87F108EC2B020F0A003EEA91 /* Bell.mp3 in Resources */,
+				87E52D3C2B04A13200A6BFE3 /* Siren.mp3 in Resources */,
 				87D6ED0D2ADFD93500CD39C3 /* Assets.xcassets in Resources */,
 				87D6ED0B2ADFD93300CD39C3 /* Main.storyboard in Resources */,
+				87DBB4042B032EA3002F503D /* Melody.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +162,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				874C0EDF2B19C0B9000624E3 /* RoundedSlider.swift in Sources */,
 				87D6ED082ADFD93300CD39C3 /* ViewController.swift in Sources */,
+				87E6C7CB2B183673001ECDDD /* CustomSlider.swift in Sources */,
 				87D6ED042ADFD93300CD39C3 /* AppDelegate.swift in Sources */,
 				87D6ED062ADFD93300CD39C3 /* SceneDelegate.swift in Sources */,
+				874791E42AF4D18C0042517D /* BatteryProgressView.swift in Sources */,
+				87BEF3912B0F59C90065D4DF /* GradientSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

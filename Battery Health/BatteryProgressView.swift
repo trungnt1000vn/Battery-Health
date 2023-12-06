@@ -19,19 +19,15 @@ class BatteryProgressView: UIView{
     private let twopi: CGFloat = .pi*2
     private var offset: CGFloat = 0.0
     
-    private let width = 180
-    
     var showSingleWave = false
     
     private var start = false
     
     
-    
-    var progress: CGFloat = 0.0
+    var progress: CGFloat = 0.3
     var waveHeight: CGFloat = 0.0
     
-    
-    
+
     override init(frame: CGRect){
         super.init(frame: frame)
         setupViews()
@@ -39,11 +35,10 @@ class BatteryProgressView: UIView{
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
 }
 extension BatteryProgressView {
     private func setupViews() {
-        bounds = CGRect(x: 0.0, y: 0.0, width: 180 , height: 180)
+        bounds = CGRect(x: 0.0, y: 0.0, width: 180, height: 180)
         clipsToBounds = true
         backgroundColor = .clear
         translatesAutoresizingMaskIntoConstraints = false
@@ -79,7 +74,7 @@ extension BatteryProgressView {
     }
     func setupProgress(_ pr: CGFloat){
         progress = pr
-        percentLabel.text = String(format:"%ld%%", NSNumber(value: Float(pr*100)).intValue)
+
         let top: CGFloat = bounds.size.height - (pr * bounds.size.height)
         firstLayer.setValue(180-top, forKeyPath: "position.y")
         secondLayer.setValue(180-top, forKeyPath: "position.y")

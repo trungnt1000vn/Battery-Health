@@ -7,6 +7,9 @@
 
 import UIKit
 import AVFoundation
+import QuartzCore
+import CoreHaptics
+
 
 class ViewController: UIViewController {
     
@@ -68,39 +71,51 @@ class ViewController: UIViewController {
     @IBOutlet weak var analyticBG: UIImageView!
     
     
-    @IBOutlet weak var volumeSlider: UISlider!
     
     
     var audioPlayer: AVAudioPlayer?
     var audioPlayerVolume: Float = 0.0
     
-    
+    var isVibrate: Bool = false
     
     public var alarmPercentage: Int = 80
     
     let batteryProgressView = BatteryProgressView()
     
-    let dr: TimeInterval = 10.0
     
     var timer: Timer?
     
+    var mp3play: String = "Bell"
+    var customSlider = CustomSlider()
+
+    var imgViewSlider = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        let device = UIDevice.current
+        device.isBatteryMonitoringEnabled = true
+        let batteryLevel = device.batteryLevel
+        
         setUpLayoutView()
-        
         setUpGestureforimgs()
-        
         scrollView.addSubview(batteryProgressView)
-        batteryProgressView.setupProgress(batteryProgressView.progress)
-        
+        batteryProgressView.setupProgress(1 - CGFloat(batteryLevel))
         updateBatteryPercentage()
         updateBatteryState()
         audioPlayerVolume = 0.5
-        volumeSlider.addTarget(self, action: #selector(volumeSliderValueChanged(_:)), for: .valueChanged)
+        vibrateDevice()
+        scrollView.addSubview(customSlider)
+        scrollView.addSubview(imgViewSlider)
+        customSlider.addTarget(self, action: #selector(volumeSliderValueChanged(_ :)), for: .valueChanged)
+//        volumeSlider.addTarget(self, action: #selector(volumeSliderValueChanged(_:)), for: .valueChanged)
+        vibrateSwitch.addTarget(self, action: #selector(vibrationSwitchChange(_ :)), for: .valueChanged)
         NotificationCenter.default.addObserver(self, selector: #selector(batteryLevelDidChange), name: UIDevice.batteryLevelDidChangeNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(batteryStateDidChange), name: UIDevice.batteryStateDidChangeNotification, object: nil)
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -113,17 +128,6 @@ class ViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { _ in
-            let dr = CGFloat(1.0 / (self.dr/0.01))
-            
-            self.batteryProgressView.progress += dr
-            self.batteryProgressView.setupProgress(self.batteryProgressView.progress)
-            
-            if self.batteryProgressView.progress >= 0.95 {
-                self.timer?.invalidate()
-                self.timer = nil
-            }
-        })
     }
     @objc func batteryLevelDidChange() {
         updateBatteryPercentage()
@@ -153,7 +157,7 @@ class ViewController: UIViewController {
         device.isBatteryMonitoringEnabled = true
         
         let batteryLevel = device.batteryLevel
-        
+        print(batteryLevel)
         if batteryLevel >= 0 {
             let batteryPercentage = Int(batteryLevel * 100)
             
@@ -219,11 +223,13 @@ class ViewController: UIViewController {
         imageView100.clipsToBounds = true
         batteryProgressView.translatesAutoresizingMaskIntoConstraints = false
         batteryProgressView.backgroundColor = UIColor.clear
-        batteryProgressView.progress = 0.0
-        
-       
-        
         batteryProgressView.frame.origin = CGPoint(x: 43, y: 197)
+        customSlider.frame.origin = CGPoint(x: 34, y: 1060)
+        customSlider.frame.size = CGSize(width: 383, height: 100)
+        imgViewSlider.frame.size = CGSize(width: 24, height: 24)
+        imgViewSlider.frame.origin = CGPoint(x: 43, y: 1096)
+        imgViewSlider.image = UIImage(named: "speakerslider")
+        imgViewSlider.contentMode = .scaleAspectFit
     }
     func setUpGestureforimgs(){
         let tapGesture80 = UITapGestureRecognizer(target: self, action: #selector(didTap80))
@@ -244,6 +250,9 @@ class ViewController: UIViewController {
         let tapGestureSiren = UITapGestureRecognizer(target: self, action: #selector(didTapSiren))
         sirenButton.addGestureRecognizer(tapGestureSiren)
         sirenButton.isUserInteractionEnabled = true
+        let tapGestureAlarm = UITapGestureRecognizer(target: self, action: #selector(didTapSetAlarm))
+        setalarmButton.addGestureRecognizer(tapGestureAlarm)
+        setalarmButton.isUserInteractionEnabled = true
     }
 }
 extension ViewController{
@@ -281,20 +290,102 @@ extension ViewController{
         bellButton.image = UIImage(named: "bellButtonPicked")
         melodyButton.image = UIImage(named: "melodyButton")
         sirenButton.image = UIImage(named: "sirenButton")
-        playBellSound(ringtone: "Bell")
+        if (isVibrate){
+//            playBellSound(ringtone: "Bell")
+//            mp3play = "Bell"
+            vibrateDevice()
+        }
+        else {
+            playBellSound(ringtone: "Bell")
+            mp3play = "Bell"
+        }
     }
     @objc func didTapMelody(){
         bellButton.image = UIImage(named: "bellButton")
         melodyButton.image = UIImage(named: "melodyButtonPicked")
         sirenButton.image = UIImage(named: "sirenButton")
-        playBellSound(ringtone: "Melody")
+        if (isVibrate){
+//            playBellSound(ringtone: "Melody")
+//            mp3play = "Melody"
+            vibrateDevice()
+        }
+        else {
+            playBellSound(ringtone: "Melody")
+            mp3play = "Melody"
+        }
     }
     @objc func didTapSiren(){
         bellButton.image = UIImage(named: "bellButton")
         melodyButton.image = UIImage(named: "melodyButton")
         sirenButton.image = UIImage(named: "sirenButtonPicked")
-        playBellSound(ringtone: "Siren")
+        if (isVibrate){
+//            playBellSound(ringtone: "Siren")
+//            mp3play = "Siren"
+            vibrateDevice()
+
+        }
+        else {
+            playBellSound(ringtone: "Siren")
+            mp3play = "Siren"
+        }
     }
+    @objc func didTapSetAlarm(){
+        setalarmButton.isHidden = true
+        
+        // Kiểm tra giá trị của alarmPercentage và mp3play
+        print("alarmPercentage: \(alarmPercentage), mp3play: \(mp3play )")
+        
+        if timer != nil {
+            timer?.invalidate()
+            timer = nil
+        } else {
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(checkBatteryLevelForAlarm), userInfo: nil, repeats: true)
+        }
+    }
+    @objc func checkBatteryLevelForAlarm() {
+        let currentBatteryLevel = Int(UIDevice.current.batteryLevel * 100)
+        
+        if currentBatteryLevel == alarmPercentage {
+            print("Playing bell sound...")
+            playBellSound(ringtone: mp3play )
+            timer?.invalidate()
+            timer = nil
+        }
+    }
+    
+    @objc func vibrationSwitchChange(_ sender: UISwitch){
+        if sender.isOn {
+            isVibrate = true
+            print(isVibrate)
+        }
+        else {
+            isVibrate = false
+            print(isVibrate)
+        }
+    }
+    func vibrateDevice(){
+        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else {
+            return
+        }
+        do {
+        
+            let engine = try CHHapticEngine()
+            try engine.start()
+            
+            let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 1.0)
+            let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 1.0)
+            let event = CHHapticEvent(eventType: .hapticContinuous, parameters: [intensity, sharpness], relativeTime: 0, duration: 10.0)
+            let pattern = try CHHapticPattern(events: [event], parameters: [])
+            
+            let player = try engine.makePlayer(with: pattern)
+            
+            try player.start(atTime: 0)
+            
+        } catch {
+            print("Không thể tạo hoặc chơi rung lâu: \(error)")
+        }
+    }
+    
+    
+    
 }
-
-
